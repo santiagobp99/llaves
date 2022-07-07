@@ -1,0 +1,16 @@
+Flask
+gunicorn
+numpy
+pandas
+sklearn
+tensorflow==2.6.0
+matplotlib
+tqdm
+opencv-python
+ipython
+keras==2.6.0
+six==1.15.0
+git+https://github.com/santiagobp99/keras-vggface.git
+keras_applications
+mtcnn
+google-cloud-storage

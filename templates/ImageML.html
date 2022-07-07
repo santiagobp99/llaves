@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Image Classification</title>
+	<link href = 'https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href = 'https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href = 'https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href = 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Upload an Image</h1>
+                <hr>
+
+                <form action="{{ url_for('upload_image')}}" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Select image</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="image" id="image">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Upload</button>
+
+                </form>
+                
+                <h2>Select a video to upload and play</h2>                
+
+            </div>
+        </div>
+        <br>
+        {{ prediction }}
+    </div>
+</body>

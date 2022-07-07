@@ -1,0 +1,33 @@
+body{
+background: #00416A;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E4E5E6, #00416A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+table, tr, td {
+    background-color: white !important;
+    text-align: center;
+    vertical-align:center;
+}
+
+video {
+    width:640px;
+    height:480px;
+}
+
+.custom-file-label::after {
+    content: "Buscar video en archivos locales";
+    background: #4CAF50;
+    color: white;
+}
+
+div.center {
+    text-align: center;
+}
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}

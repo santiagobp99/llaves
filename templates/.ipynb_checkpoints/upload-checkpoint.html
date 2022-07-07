@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Image Classification</title>
+<link href = 'https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href = 'https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href = 'https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href = 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <title>Python Flask - Video Upload and Play Example</title>
+    <h2>Select a video to upload and play</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div style="margin: 10px auto;">
+            <video autoplay="autoplay" controls="controls" preload="preload" width="320" height="240" controls>
+                <source src="{{ url_for('display_video', filename=filename) }}" type="video/mp4"></source>
+            </video>
+        </div>
+    {% endif %}
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Upload">
+        </p>
+    </form>
+    <br>
+        {{ prediction }}
+
+    <table>
+          <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>
+                </tr>
+          </thead>
+          <tbody>
+          {% for key, value in prediction.items() %}
+               <tr>
+                   <td><img src="{{ url_for('display_image', filename=key) }}" alt={{key}}/></td>
+                   <td> {{ value }} </td>
+               </tr>
+          {% endfor %}
+          </tbody>
+    </table>
+</body>
